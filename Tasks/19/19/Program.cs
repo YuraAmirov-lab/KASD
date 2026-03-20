@@ -1,122 +1,125 @@
 ﻿using System;
 using System.Collections.Generic;
-
-public class MyTreeMap
+class Program
 {
+    static void Main()
+    {
+        MyTreeSet<int> set = new MyTreeSet<int>();
+
+        set.Add(5);
+        set.Add(2);
+        set.Add(8);
+        set.Add(1);
+        set.Add(10);
+
+        Console.WriteLine("Размер: " + set.Size());
+        Console.WriteLine("Первый: " + set.First());
+        Console.WriteLine("Последний: " + set.Last());
+
+        Console.WriteLine("Содержит 8: " + set.Contains(8));
+        Console.WriteLine("Ceiling(6): " + set.Ceiling(6));
+        Console.WriteLine("Floor(6): " + set.Floor(6));
+        Console.WriteLine("Higher(5): " + set.Higher(5));
+        Console.WriteLine("Lower(5): " + set.Lower(5));
+
+        int[] arr = set.ToArray();
+        Console.WriteLine("Элементы:");
+        for (int i = 0; i < arr.Length; i++)
+            Console.Write(arr[i] + " ");
+        Console.WriteLine();
+
+        MyTreeSet<int> sub = set.SubSet(2, 10);
+        Console.WriteLine("Подмножество [2;10):");
+        int[] arr2 = sub.ToArray();
+        for (int i = 0; i < arr2.Length; i++)
+            Console.Write(arr2[i] + " ");
+        Console.WriteLine();
+
+        Console.WriteLine("PollFirst: " + set.PollFirst());
+        Console.WriteLine("PollLast: " + set.PollLast());
+
+        Console.WriteLine("После удаления первого и последнего:");
+        int[] arr3 = set.ToArray();
+        for (int i = 0; i < arr3.Length; i++)
+            Console.Write(arr3[i] + " ");
+        Console.WriteLine();
+
+        Console.WriteLine("Обратный порядок:");
+        List<int> desc = set.DescendingIterator();
+        for (int i = 0; i < desc.Count; i++)
+            Console.Write(desc[i] + " ");
+        Console.WriteLine();
+    }
+}
+public class MyTreeSet<E>
+{
+    private const bool RED = true;
+    private const bool BLACK = false;
+
     private class Node
     {
-        public object Key;
-        public object Value;
+        public E Key;
         public Node Left;
         public Node Right;
+        public Node Parent;
+        public bool Color;
 
-        public Node(object key, object value)
+        public Node(E key, bool color, Node parent)
         {
             Key = key;
-            Value = value;
+            Color = color;
+            Parent = parent;
         }
     }
 
-    private IComparer<object> comparer;
     private Node root;
     private int size;
+    private IComparer<E> comparer;
 
-    public MyTreeMap()
+    public MyTreeSet()
     {
-        comparer = Comparer<object>.Default;
+        comparer = Comparer<E>.Default;
     }
 
-    public MyTreeMap(IComparer<object> comp)
+    public MyTreeSet(IComparer<E> comparator)
     {
-        if (comp == null)
-            throw new ArgumentNullException("comp");
-        comparer = comp;
+        if (comparator == null)
+            throw new ArgumentNullException("comparator");
+        comparer = comparator;
     }
 
-    public void Clear()
+    public MyTreeSet(E[] a)
     {
-        root = null;
-        size = 0;
+        if (a == null)
+            throw new ArgumentNullException("a");
+
+        comparer = Comparer<E>.Default;
+
+        for (int i = 0; i < a.Length; i++)
+            Add(a[i]);
     }
 
-    public bool ContainsKey(object key)
+    public MyTreeSet(MyTreeSet<E> s)
     {
-        return FindNode(key) != null;
+        if (s == null)
+            throw new ArgumentNullException("s");
+
+        comparer = s.comparer;
+        E[] arr = s.ToArray();
+        for (int i = 0; i < arr.Length; i++)
+            Add(arr[i]);
     }
 
-    public bool ContainsValue(object value)
+    public bool Add(E e)
     {
-        return ContainsValue(root, value);
-    }
-
-    private bool ContainsValue(Node node, object value)
-    {
-        if (node == null)
-            return false;
-        if (Equals(value, node.Value))
-            return true;
-        if (ContainsValue(node.Left, value))
-            return true;
-        if (ContainsValue(node.Right, value))
-            return true;
-        return false;
-    }
-
-    public List<KeyValuePair<object, object>> EntrySet()
-    {
-        var list = new List<KeyValuePair<object, object>>();
-        FillEntries(root, list);
-        return list;
-    }
-
-    private void FillEntries(Node node, List<KeyValuePair<object, object>> list)
-    {
-        if (node == null)
-            return;
-        FillEntries(node.Left, list);
-        list.Add(new KeyValuePair<object, object>(node.Key, node.Value));
-        FillEntries(node.Right, list);
-    }
-
-    public object Get(object key)
-    {
-        var node = FindNode(key);
-        if (node != null)
-            return node.Value;
-        return null;
-    }
-
-    public bool IsEmpty()
-    {
-        return size == 0;
-    }
-
-    public List<object> KeySet()
-    {
-        var list = new List<object>();
-        FillKeys(root, list);
-        return list;
-    }
-
-    private void FillKeys(Node node, List<object> list)
-    {
-        if (node == null)
-            return;
-        FillKeys(node.Left, list);
-        list.Add(node.Key);
-        FillKeys(node.Right, list);
-    }
-
-    public object Put(object key, object value)
-    {
-        if (key == null)
-            throw new ArgumentNullException("key");
+        if (e == null)
+            throw new ArgumentNullException("e");
 
         if (root == null)
         {
-            root = new Node(key, value);
-            size++;
-            return null;
+            root = new Node(e, BLACK, null);
+            size = 1;
+            return true;
         }
 
         Node parent = null;
@@ -126,42 +129,124 @@ public class MyTreeMap
         while (current != null)
         {
             parent = current;
-            cmp = comparer.Compare(key, current.Key);
+            cmp = comparer.Compare(e, current.Key);
+
             if (cmp == 0)
-            {
-                var old = current.Value;
-                current.Value = value;
-                return old;
-            }
+                return false;
             else if (cmp < 0)
-            {
                 current = current.Left;
-            }
             else
-            {
                 current = current.Right;
-            }
         }
 
-        var newNode = new Node(key, value);
+        Node newNode = new Node(e, RED, parent);
+
         if (cmp < 0)
             parent.Left = newNode;
         else
             parent.Right = newNode;
+
+        FixAfterInsert(newNode);
         size++;
-        return null;
+        return true;
     }
 
-    public object Remove(object key)
+    public bool AddAll(E[] a)
     {
-        var node = FindNode(key);
-        if (node == null)
-            return null;
+        if (a == null)
+            throw new ArgumentNullException("a");
 
-        var old = node.Value;
-        DeleteNode(node);
+        bool changed = false;
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (Add(a[i]))
+                changed = true;
+        }
+        return changed;
+    }
+
+    public void Clear()
+    {
+        root = null;
+        size = 0;
+    }
+
+    public bool Contains(object o)
+    {
+        if (o == null)
+            return false;
+
+        return FindNode((E)o) != null;
+    }
+
+    public bool ContainsAll(E[] a)
+    {
+        if (a == null)
+            throw new ArgumentNullException("a");
+
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (!Contains(a[i]))
+                return false;
+        }
+        return true;
+    }
+
+    public bool IsEmpty()
+    {
+        return size == 0;
+    }
+
+    public bool Remove(object o)
+    {
+        if (o == null)
+            return false;
+
+        Node p = FindNode((E)o);
+        if (p == null)
+            return false;
+
+        DeleteNode(p);
         size--;
-        return old;
+        return true;
+    }
+
+    public bool RemoveAll(E[] a)
+    {
+        if (a == null)
+            throw new ArgumentNullException("a");
+
+        bool changed = false;
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (Remove(a[i]))
+                changed = true;
+        }
+        return changed;
+    }
+
+    public bool RetainAll(E[] a)
+    {
+        if (a == null)
+            throw new ArgumentNullException("a");
+
+        HashSet<E> keep = new HashSet<E>();
+        for (int i = 0; i < a.Length; i++)
+            keep.Add(a[i]);
+
+        E[] arr = ToArray();
+        bool changed = false;
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (!keep.Contains(arr[i]))
+            {
+                Remove(arr[i]);
+                changed = true;
+            }
+        }
+
+        return changed;
     }
 
     public int Size()
@@ -169,144 +254,78 @@ public class MyTreeMap
         return size;
     }
 
-    public object FirstKey()
+    public E[] ToArray()
+    {
+        List<E> list = new List<E>();
+        InOrder(root, list);
+        return list.ToArray();
+    }
+
+    public E[] ToArray(E[] a)
+    {
+        E[] data = ToArray();
+
+        if (a == null || a.Length < data.Length)
+            a = new E[data.Length];
+
+        for (int i = 0; i < data.Length; i++)
+            a[i] = data[i];
+
+        return a;
+    }
+
+    public E First()
     {
         if (root == null)
-            throw new InvalidOperationException("Map is empty");
-        var node = root;
-        while (node.Left != null)
-            node = node.Left;
-        return node.Key;
+            throw new InvalidOperationException("Set is empty");
+
+        return Minimum(root).Key;
     }
 
-    public object LastKey()
+    public E Last()
     {
         if (root == null)
-            throw new InvalidOperationException("Map is empty");
-        var node = root;
-        while (node.Right != null)
-            node = node.Right;
-        return node.Key;
+            throw new InvalidOperationException("Set is empty");
+
+        return Maximum(root).Key;
     }
 
-    public MyTreeMap HeadMap(object end)
+    public MyTreeSet<E> SubSet(E fromElement, E toElement)
     {
-        var result = new MyTreeMap(comparer);
-        AddHead(root, result, end);
+        if (comparer.Compare(fromElement, toElement) > 0)
+            throw new ArgumentException("fromElement > toElement");
+
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillSubSet(root, result, fromElement, true, toElement, false);
         return result;
     }
 
-    private void AddHead(Node node, MyTreeMap target, object end)
+    public MyTreeSet<E> HeadSet(E toElement)
     {
-        if (node == null)
-            return;
-        AddHead(node.Left, target, end);
-        if (comparer.Compare(node.Key, end) < 0)
-            target.Put(node.Key, node.Value);
-        AddHead(node.Right, target, end);
-    }
-
-    public MyTreeMap SubMap(object start, object end)
-    {
-        if (comparer.Compare(start, end) >= 0)
-            throw new ArgumentException("start must be less than end");
-        var result = new MyTreeMap(comparer);
-        AddSub(root, result, start, end);
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillHeadSet(root, result, toElement, false);
         return result;
     }
 
-    private void AddSub(Node node, MyTreeMap target, object start, object end)
+    public MyTreeSet<E> TailSet(E fromElement)
     {
-        if (node == null)
-            return;
-        AddSub(node.Left, target, start, end);
-        if (comparer.Compare(node.Key, start) >= 0 && comparer.Compare(node.Key, end) < 0)
-            target.Put(node.Key, node.Value);
-        AddSub(node.Right, target, start, end);
-    }
-
-    public MyTreeMap TailMap(object start)
-    {
-        var result = new MyTreeMap(comparer);
-        AddTail(root, result, start);
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillTailSet(root, result, fromElement, true);
         return result;
     }
 
-    private void AddTail(Node node, MyTreeMap target, object start)
+    public E Ceiling(E obj)
     {
-        if (node == null)
-            return;
-        AddTail(node.Left, target, start);
-        if (comparer.Compare(node.Key, start) > 0)
-            target.Put(node.Key, node.Value);
-        AddTail(node.Right, target, start);
-    }
-
-    public bool TryLowerEntry(object key, out KeyValuePair<object, object> entry)
-    {
-        if (key == null)
-            throw new ArgumentNullException("key");
-        Node candidate = null;
         Node current = root;
+        Node candidate = null;
+
         while (current != null)
         {
-            int cmp = comparer.Compare(current.Key, key);
-            if (cmp < 0)
-            {
-                candidate = current;
-                current = current.Right;
-            }
-            else
-            {
-                current = current.Left;
-            }
-        }
-        if (candidate != null)
-        {
-            entry = new KeyValuePair<object, object>(candidate.Key, candidate.Value);
-            return true;
-        }
-        entry = default(KeyValuePair<object, object>);
-        return false;
-    }
+            int cmp = comparer.Compare(current.Key, obj);
 
-    public bool TryFloorEntry(object key, out KeyValuePair<object, object> entry)
-    {
-        if (key == null)
-            throw new ArgumentNullException("key");
-        Node candidate = null;
-        Node current = root;
-        while (current != null)
-        {
-            int cmp = comparer.Compare(current.Key, key);
-            if (cmp <= 0)
-            {
-                candidate = current;
-                current = current.Right;
-            }
-            else
-            {
-                current = current.Left;
-            }
-        }
-        if (candidate != null)
-        {
-            entry = new KeyValuePair<object, object>(candidate.Key, candidate.Value);
-            return true;
-        }
-        entry = default(KeyValuePair<object, object>);
-        return false;
-    }
+            if (cmp == 0)
+                return current.Key;
 
-    public bool TryHigherEntry(object key, out KeyValuePair<object, object> entry)
-    {
-        if (key == null)
-            throw new ArgumentNullException("key");
-        Node candidate = null;
-        Node current = root;
-        while (current != null)
-        {
-            int cmp = comparer.Compare(current.Key, key);
             if (cmp > 0)
             {
                 candidate = current;
@@ -317,25 +336,52 @@ public class MyTreeMap
                 current = current.Right;
             }
         }
-        if (candidate != null)
-        {
-            entry = new KeyValuePair<object, object>(candidate.Key, candidate.Value);
-            return true;
-        }
-        entry = default(KeyValuePair<object, object>);
-        return false;
+
+        if (candidate == null)
+            return default(E);
+
+        return candidate.Key;
     }
 
-    public bool TryCeilingEntry(object key, out KeyValuePair<object, object> entry)
+    public E Floor(E obj)
     {
-        if (key == null)
-            throw new ArgumentNullException("key");
-        Node candidate = null;
         Node current = root;
+        Node candidate = null;
+
         while (current != null)
         {
-            int cmp = comparer.Compare(current.Key, key);
-            if (cmp >= 0)
+            int cmp = comparer.Compare(current.Key, obj);
+
+            if (cmp == 0)
+                return current.Key;
+
+            if (cmp < 0)
+            {
+                candidate = current;
+                current = current.Right;
+            }
+            else
+            {
+                current = current.Left;
+            }
+        }
+
+        if (candidate == null)
+            return default(E);
+
+        return candidate.Key;
+    }
+
+    public E Higher(E obj)
+    {
+        Node current = root;
+        Node candidate = null;
+
+        while (current != null)
+        {
+            int cmp = comparer.Compare(current.Key, obj);
+
+            if (cmp > 0)
             {
                 candidate = current;
                 current = current.Left;
@@ -345,109 +391,193 @@ public class MyTreeMap
                 current = current.Right;
             }
         }
-        if (candidate != null)
+
+        if (candidate == null)
+            return default(E);
+
+        return candidate.Key;
+    }
+
+    public E Lower(E obj)
+    {
+        Node current = root;
+        Node candidate = null;
+
+        while (current != null)
         {
-            entry = new KeyValuePair<object, object>(candidate.Key, candidate.Value);
-            return true;
+            int cmp = comparer.Compare(current.Key, obj);
+
+            if (cmp < 0)
+            {
+                candidate = current;
+                current = current.Right;
+            }
+            else
+            {
+                current = current.Left;
+            }
         }
-        entry = default(KeyValuePair<object, object>);
-        return false;
+
+        if (candidate == null)
+            return default(E);
+
+        return candidate.Key;
     }
 
-    public object LowerKey(object key)
+    public MyTreeSet<E> HeadSet(E upperBound, bool incl)
     {
-        if (TryLowerEntry(key, out var entry))
-            return entry.Key;
-        return null;
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillHeadSet(root, result, upperBound, incl);
+        return result;
     }
 
-    public object FloorKey(object key)
+    public MyTreeSet<E> SubSet(E lowerBound, bool lowIncl, E upperBound, bool highIncl)
     {
-        if (TryFloorEntry(key, out var entry))
-            return entry.Key;
-        return null;
+        if (comparer.Compare(lowerBound, upperBound) > 0)
+            throw new ArgumentException("lowerBound > upperBound");
+
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillSubSet(root, result, lowerBound, lowIncl, upperBound, highIncl);
+        return result;
     }
 
-    public object HigherKey(object key)
+    public MyTreeSet<E> TailSet(E fromElement, bool inclusive)
     {
-        if (TryHigherEntry(key, out var entry))
-            return entry.Key;
-        return null;
+        MyTreeSet<E> result = new MyTreeSet<E>(comparer);
+        FillTailSet(root, result, fromElement, inclusive);
+        return result;
     }
 
-    public object CeilingKey(object key)
-    {
-        if (TryCeilingEntry(key, out var entry))
-            return entry.Key;
-        return null;
-    }
-
-    public bool TryPollFirstEntry(out KeyValuePair<object, object> entry)
+    public E PollLast()
     {
         if (root == null)
-        {
-            entry = default(KeyValuePair<object, object>);
-            return false;
-        }
-        var min = root;
-        while (min.Left != null)
-            min = min.Left;
-        entry = new KeyValuePair<object, object>(min.Key, min.Value);
-        DeleteNode(min);
-        size--;
-        return true;
-    }
+            return default(E);
 
-    public bool TryPollLastEntry(out KeyValuePair<object, object> entry)
-    {
-        if (root == null)
-        {
-            entry = default(KeyValuePair<object, object>);
-            return false;
-        }
-        var max = root;
-        while (max.Right != null)
-            max = max.Right;
-        entry = new KeyValuePair<object, object>(max.Key, max.Value);
+        Node max = Maximum(root);
+        E ans = max.Key;
         DeleteNode(max);
         size--;
-        return true;
+        return ans;
     }
 
-    public bool TryFirstEntry(out KeyValuePair<object, object> entry)
+    public E PollFirst()
     {
         if (root == null)
-        {
-            entry = default(KeyValuePair<object, object>);
-            return false;
-        }
-        var min = root;
-        while (min.Left != null)
-            min = min.Left;
-        entry = new KeyValuePair<object, object>(min.Key, min.Value);
-        return true;
+            return default(E);
+
+        Node min = Minimum(root);
+        E ans = min.Key;
+        DeleteNode(min);
+        size--;
+        return ans;
     }
 
-    public bool TryLastEntry(out KeyValuePair<object, object> entry)
+    public List<E> DescendingIterator()
     {
-        if (root == null)
-        {
-            entry = default(KeyValuePair<object, object>);
-            return false;
-        }
-        var max = root;
-        while (max.Right != null)
-            max = max.Right;
-        entry = new KeyValuePair<object, object>(max.Key, max.Value);
-        return true;
+        List<E> list = new List<E>();
+        ReverseInOrder(root, list);
+        return list;
     }
 
-    private Node FindNode(object key)
+    public MyTreeSet<E> DescendingSet()
     {
-        var current = root;
+        MyTreeSet<E> result = new MyTreeSet<E>(new ReverseComparer(comparer));
+        E[] arr = ToArray();
+        for (int i = 0; i < arr.Length; i++)
+            result.Add(arr[i]);
+        return result;
+    }
+
+    private class ReverseComparer : IComparer<E>
+    {
+        private IComparer<E> comp;
+
+        public ReverseComparer(IComparer<E> c)
+        {
+            comp = c;
+        }
+
+        public int Compare(E x, E y)
+        {
+            return comp.Compare(y, x);
+        }
+    }
+
+    private void InOrder(Node node, List<E> list)
+    {
+        if (node == null)
+            return;
+
+        InOrder(node.Left, list);
+        list.Add(node.Key);
+        InOrder(node.Right, list);
+    }
+
+    private void ReverseInOrder(Node node, List<E> list)
+    {
+        if (node == null)
+            return;
+
+        ReverseInOrder(node.Right, list);
+        list.Add(node.Key);
+        ReverseInOrder(node.Left, list);
+    }
+
+    private void FillHeadSet(Node node, MyTreeSet<E> result, E bound, bool incl)
+    {
+        if (node == null)
+            return;
+
+        FillHeadSet(node.Left, result, bound, incl);
+
+        int cmp = comparer.Compare(node.Key, bound);
+        if ((incl && cmp <= 0) || (!incl && cmp < 0))
+            result.Add(node.Key);
+
+        FillHeadSet(node.Right, result, bound, incl);
+    }
+
+    private void FillTailSet(Node node, MyTreeSet<E> result, E bound, bool incl)
+    {
+        if (node == null)
+            return;
+
+        FillTailSet(node.Left, result, bound, incl);
+
+        int cmp = comparer.Compare(node.Key, bound);
+        if ((incl && cmp >= 0) || (!incl && cmp > 0))
+            result.Add(node.Key);
+
+        FillTailSet(node.Right, result, bound, incl);
+    }
+
+    private void FillSubSet(Node node, MyTreeSet<E> result, E low, bool lowIncl, E high, bool highIncl)
+    {
+        if (node == null)
+            return;
+
+        FillSubSet(node.Left, result, low, lowIncl, high, highIncl);
+
+        int cmpLow = comparer.Compare(node.Key, low);
+        int cmpHigh = comparer.Compare(node.Key, high);
+
+        bool okLow = lowIncl ? cmpLow >= 0 : cmpLow > 0;
+        bool okHigh = highIncl ? cmpHigh <= 0 : cmpHigh < 0;
+
+        if (okLow && okHigh)
+            result.Add(node.Key);
+
+        FillSubSet(node.Right, result, low, lowIncl, high, highIncl);
+    }
+
+    private Node FindNode(E key)
+    {
+        Node current = root;
+
         while (current != null)
         {
             int cmp = comparer.Compare(key, current.Key);
+
             if (cmp == 0)
                 return current;
             else if (cmp < 0)
@@ -455,378 +585,317 @@ public class MyTreeMap
             else
                 current = current.Right;
         }
+
         return null;
     }
 
-    private Node FindParent(object key)
+    private Node Minimum(Node node)
     {
-        if (root == null || comparer.Compare(key, root.Key) == 0)
+        while (node.Left != null)
+            node = node.Left;
+        return node;
+    }
+
+    private Node Maximum(Node node)
+    {
+        while (node.Right != null)
+            node = node.Right;
+        return node;
+    }
+
+    private bool ColorOf(Node p)
+    {
+        if (p == null)
+            return BLACK;
+        return p.Color;
+    }
+
+    private Node ParentOf(Node p)
+    {
+        if (p == null)
             return null;
-
-        var current = root;
-        Node parent = null;
-        while (current != null)
-        {
-            int cmp = comparer.Compare(key, current.Key);
-            if (cmp == 0)
-                return parent;
-            parent = current;
-            if (cmp < 0)
-                current = current.Left;
-            else
-                current = current.Right;
-        }
-        return null;
+        return p.Parent;
     }
 
-    private void DeleteNode(Node node)
+    private Node LeftOf(Node p)
     {
-        var parent = FindParent(node.Key);
-        bool isLeft = (parent != null && parent.Left == node);
+        if (p == null)
+            return null;
+        return p.Left;
+    }
 
-        if (node.Left == null && node.Right == null)
+    private Node RightOf(Node p)
+    {
+        if (p == null)
+            return null;
+        return p.Right;
+    }
+
+    private void SetColor(Node p, bool c)
+    {
+        if (p != null)
+            p.Color = c;
+    }
+
+    private void RotateLeft(Node p)
+    {
+        if (p == null)
+            return;
+
+        Node r = p.Right;
+        p.Right = r.Left;
+
+        if (r.Left != null)
+            r.Left.Parent = p;
+
+        r.Parent = p.Parent;
+
+        if (p.Parent == null)
+            root = r;
+        else if (p.Parent.Left == p)
+            p.Parent.Left = r;
+        else
+            p.Parent.Right = r;
+
+        r.Left = p;
+        p.Parent = r;
+    }
+
+    private void RotateRight(Node p)
+    {
+        if (p == null)
+            return;
+
+        Node l = p.Left;
+        p.Left = l.Right;
+
+        if (l.Right != null)
+            l.Right.Parent = p;
+
+        l.Parent = p.Parent;
+
+        if (p.Parent == null)
+            root = l;
+        else if (p.Parent.Right == p)
+            p.Parent.Right = l;
+        else
+            p.Parent.Left = l;
+
+        l.Right = p;
+        p.Parent = l;
+    }
+
+    private void FixAfterInsert(Node x)
+    {
+        x.Color = RED;
+
+        while (x != null && x != root && ColorOf(ParentOf(x)) == RED)
         {
-            if (parent == null)
-                root = null;
-            else if (isLeft)
-                parent.Left = null;
+            if (ParentOf(x) == LeftOf(ParentOf(ParentOf(x))))
+            {
+                Node y = RightOf(ParentOf(ParentOf(x)));
+
+                if (ColorOf(y) == RED)
+                {
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(y, BLACK);
+                    SetColor(ParentOf(ParentOf(x)), RED);
+                    x = ParentOf(ParentOf(x));
+                }
+                else
+                {
+                    if (x == RightOf(ParentOf(x)))
+                    {
+                        x = ParentOf(x);
+                        RotateLeft(x);
+                    }
+
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(ParentOf(ParentOf(x)), RED);
+                    RotateRight(ParentOf(ParentOf(x)));
+                }
+            }
             else
-                parent.Right = null;
+            {
+                Node y = LeftOf(ParentOf(ParentOf(x)));
+
+                if (ColorOf(y) == RED)
+                {
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(y, BLACK);
+                    SetColor(ParentOf(ParentOf(x)), RED);
+                    x = ParentOf(ParentOf(x));
+                }
+                else
+                {
+                    if (x == LeftOf(ParentOf(x)))
+                    {
+                        x = ParentOf(x);
+                        RotateRight(x);
+                    }
+
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(ParentOf(ParentOf(x)), RED);
+                    RotateLeft(ParentOf(ParentOf(x)));
+                }
+            }
         }
-        else if (node.Left == null)
+
+        root.Color = BLACK;
+    }
+
+    private void DeleteNode(Node p)
+    {
+        if (p.Left != null && p.Right != null)
         {
-            if (parent == null)
-                root = node.Right;
-            else if (isLeft)
-                parent.Left = node.Right;
-            else
-                parent.Right = node.Right;
+            Node s = Successor(p);
+            p.Key = s.Key;
+            p = s;
         }
-        else if (node.Right == null)
+
+        Node replacement;
+        if (p.Left != null)
+            replacement = p.Left;
+        else
+            replacement = p.Right;
+
+        if (replacement != null)
         {
-            if (parent == null)
-                root = node.Left;
-            else if (isLeft)
-                parent.Left = node.Left;
+            replacement.Parent = p.Parent;
+
+            if (p.Parent == null)
+                root = replacement;
+            else if (p == p.Parent.Left)
+                p.Parent.Left = replacement;
             else
-                parent.Right = node.Left;
+                p.Parent.Right = replacement;
+
+            p.Left = null;
+            p.Right = null;
+            p.Parent = null;
+
+            if (p.Color == BLACK)
+                FixAfterDelete(replacement);
+        }
+        else if (p.Parent == null)
+        {
+            root = null;
         }
         else
         {
-            var minRight = node.Right;
-            while (minRight.Left != null)
-                minRight = minRight.Left;
+            if (p.Color == BLACK)
+                FixAfterDelete(p);
 
-            var minKey = minRight.Key;
-            var minValue = minRight.Value;
-
-            DeleteNode(minRight);
-
-            node.Key = minKey;
-            node.Value = minValue;
-        }
-    }
-}
-
-public class MyTreeSet
-{
-    private object DUMMY = new object();
-    private MyTreeMap m;
-
-    public MyTreeSet()
-    {
-        m = new MyTreeMap();
-    }
-
-    public MyTreeSet(MyTreeMap map)
-    {
-        if (map == null)
-            throw new ArgumentNullException("map");
-        m = map;
-    }
-
-    public MyTreeSet(IComparer<object> comparator)
-    {
-        if (comparator == null)
-            throw new ArgumentNullException("comparator");
-        m = new MyTreeMap(comparator);
-    }
-
-    public MyTreeSet(object[] a)
-    {
-        m = new MyTreeMap();
-        if (a == null)
-            throw new ArgumentNullException("a");
-        for (int i = 0; i < a.Length; i++)
-            m.Put(a[i], DUMMY);
-    }
-
-    public MyTreeSet(MyTreeSet s)
-    {
-        m = new MyTreeMap();
-        if (s == null)
-            throw new ArgumentNullException("s");
-        var keys = s.m.KeySet();
-        for (int i = 0; i < keys.Count; i++)
-            m.Put(keys[i], DUMMY);
-    }
-
-    public bool Add(object e)
-    {
-        if (e == null)
-            throw new ArgumentNullException("e");
-        if (m.ContainsKey(e))
-            return false;
-        m.Put(e, DUMMY);
-        return true;
-    }
-
-    public bool AddAll(object[] a)
-    {
-        if (a == null)
-            throw new ArgumentNullException("a");
-        bool modified = false;
-        for (int i = 0; i < a.Length; i++)
-        {
-            if (Add(a[i]))
-                modified = true;
-        }
-        return modified;
-    }
-
-    public void Clear()
-    {
-        m.Clear();
-    }
-
-    public bool Contains(object o)
-    {
-        return m.ContainsKey(o);
-    }
-
-    public bool ContainsAll(object[] a)
-    {
-        if (a == null)
-            throw new ArgumentNullException("a");
-        for (int i = 0; i < a.Length; i++)
-        {
-            if (!m.ContainsKey(a[i]))
-                return false;
-        }
-        return true;
-    }
-
-    public bool IsEmpty()
-    {
-        return m.IsEmpty();
-    }
-
-    public bool Remove(object o)
-    {
-        if (!m.ContainsKey(o))
-            return false;
-        m.Remove(o);
-        return true;
-    }
-
-    public bool RemoveAll(object[] a)
-    {
-        if (a == null)
-            throw new ArgumentNullException("a");
-        bool modified = false;
-        for (int i = 0; i < a.Length; i++)
-        {
-            if (Remove(a[i]))
-                modified = true;
-        }
-        return modified;
-    }
-
-    public bool RetainAll(object[] a)
-    {
-        if (a == null)
-            throw new ArgumentNullException("a");
-        var toKeep = new HashSet<object>();
-        for (int i = 0; i < a.Length; i++)
-            toKeep.Add(a[i]);
-
-        var keys = m.KeySet();
-        bool modified = false;
-        for (int i = 0; i < keys.Count; i++)
-        {
-            if (!toKeep.Contains(keys[i]))
+            if (p.Parent != null)
             {
-                m.Remove(keys[i]);
-                modified = true;
+                if (p == p.Parent.Left)
+                    p.Parent.Left = null;
+                else if (p == p.Parent.Right)
+                    p.Parent.Right = null;
+
+                p.Parent = null;
             }
         }
-        return modified;
     }
 
-    public int Size()
+    private void FixAfterDelete(Node x)
     {
-        return m.Size();
-    }
-
-    public object[] ToArray()
-    {
-        var keys = m.KeySet();
-        return keys.ToArray();
-    }
-
-    public object[] ToArray(object[] a)
-    {
-        var keys = m.KeySet();
-        if (a == null || a.Length < keys.Count)
+        while (x != root && ColorOf(x) == BLACK)
         {
-            a = new object[keys.Count];
+            if (x == LeftOf(ParentOf(x)))
+            {
+                Node sib = RightOf(ParentOf(x));
+
+                if (ColorOf(sib) == RED)
+                {
+                    SetColor(sib, BLACK);
+                    SetColor(ParentOf(x), RED);
+                    RotateLeft(ParentOf(x));
+                    sib = RightOf(ParentOf(x));
+                }
+
+                if (ColorOf(LeftOf(sib)) == BLACK && ColorOf(RightOf(sib)) == BLACK)
+                {
+                    SetColor(sib, RED);
+                    x = ParentOf(x);
+                }
+                else
+                {
+                    if (ColorOf(RightOf(sib)) == BLACK)
+                    {
+                        SetColor(LeftOf(sib), BLACK);
+                        SetColor(sib, RED);
+                        RotateRight(sib);
+                        sib = RightOf(ParentOf(x));
+                    }
+
+                    SetColor(sib, ColorOf(ParentOf(x)));
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(RightOf(sib), BLACK);
+                    RotateLeft(ParentOf(x));
+                    x = root;
+                }
+            }
+            else
+            {
+                Node sib = LeftOf(ParentOf(x));
+
+                if (ColorOf(sib) == RED)
+                {
+                    SetColor(sib, BLACK);
+                    SetColor(ParentOf(x), RED);
+                    RotateRight(ParentOf(x));
+                    sib = LeftOf(ParentOf(x));
+                }
+
+                if (ColorOf(RightOf(sib)) == BLACK && ColorOf(LeftOf(sib)) == BLACK)
+                {
+                    SetColor(sib, RED);
+                    x = ParentOf(x);
+                }
+                else
+                {
+                    if (ColorOf(LeftOf(sib)) == BLACK)
+                    {
+                        SetColor(RightOf(sib), BLACK);
+                        SetColor(sib, RED);
+                        RotateLeft(sib);
+                        sib = LeftOf(ParentOf(x));
+                    }
+
+                    SetColor(sib, ColorOf(ParentOf(x)));
+                    SetColor(ParentOf(x), BLACK);
+                    SetColor(LeftOf(sib), BLACK);
+                    RotateRight(ParentOf(x));
+                    x = root;
+                }
+            }
         }
-        for (int i = 0; i < keys.Count; i++)
-            a[i] = keys[i];
-        return a;
+
+        SetColor(x, BLACK);
     }
 
-    public object First()
+    private Node Successor(Node t)
     {
-        return m.FirstKey();
-    }
-
-    public object Last()
-    {
-        return m.LastKey();
-    }
-
-    public MyTreeSet SubSet(object fromElement, object toElement)
-    {
-        var sub = m.SubMap(fromElement, toElement);
-        return new MyTreeSet(sub);
-    }
-
-    public MyTreeSet HeadSet(object toElement)
-    {
-        var head = m.HeadMap(toElement);
-        return new MyTreeSet(head);
-    }
-
-    public MyTreeSet TailSet(object fromElement)
-    {
-        var tail = m.TailMap(fromElement);
-        var result = new MyTreeSet();
-        if (m.ContainsKey(fromElement))
-            result.Add(fromElement);
-        var keys = tail.KeySet();
-        for (int i = 0; i < keys.Count; i++)
-            result.Add(keys[i]);
-        return result;
-    }
-
-    public object Ceiling(object obj)
-    {
-        return m.CeilingKey(obj);
-    }
-
-    public object Floor(object obj)
-    {
-        return m.FloorKey(obj);
-    }
-
-    public object Higher(object obj)
-    {
-        return m.HigherKey(obj);
-    }
-
-    public object Lower(object obj)
-    {
-        return m.LowerKey(obj);
-    }
-
-    public MyTreeSet HeadSet(object upperBound, bool incl)
-    {
-        var result = HeadSet(upperBound);
-        if (incl && m.ContainsKey(upperBound))
-            result.Add(upperBound);
-        return result;
-    }
-
-    public MyTreeSet SubSet(object lowerBound, bool lowIncl, object upperBound, bool highIncl)
-    {
-        var allKeys = m.KeySet();
-        var result = new MyTreeSet();
-        var comp = Comparer<object>.Default;
-
-        for (int i = 0; i < allKeys.Count; i++)
-        {
-            var k = allKeys[i];
-            int cmpLow = comp.Compare(k, lowerBound);
-            int cmpHigh = comp.Compare(k, upperBound);
-
-            bool aboveLow = lowIncl ? cmpLow >= 0 : cmpLow > 0;
-            bool belowHigh = highIncl ? cmpHigh <= 0 : cmpHigh < 0;
-
-            if (aboveLow && belowHigh)
-                result.Add(k);
-        }
-        return result;
-    }
-
-    public MyTreeSet TailSet(object fromElement, bool inclusive)
-    {
-        var allKeys = m.KeySet();
-        var result = new MyTreeSet();
-        var comp = Comparer<object>.Default;
-
-        for (int i = 0; i < allKeys.Count; i++)
-        {
-            var k = allKeys[i];
-            int c = comp.Compare(k, fromElement);
-            if (inclusive ? c >= 0 : c > 0)
-                result.Add(k);
-        }
-        return result;
-    }
-
-    public object PollLast()
-    {
-        if (m.IsEmpty())
+        if (t == null)
             return null;
-        if (m.TryPollLastEntry(out var entry))
-            return entry.Key;
-        return null;
-    }
-
-    public object PollFirst()
-    {
-        if (m.IsEmpty())
-            return null;
-        if (m.TryPollFirstEntry(out var entry))
-            return entry.Key;
-        return null;
-    }
-
-    public List<object> DescendingIterator()
-    {
-        var keys = m.KeySet();
-        var result = new List<object>();
-        for (int i = keys.Count - 1; i >= 0; i--)
-            result.Add(keys[i]);
-        return result;
-    }
-
-    public MyTreeSet DescendingSet()
-    {
-        var keys = m.KeySet();
-        var reverseComp = new ReverseComparer();
-        var result = new MyTreeSet(reverseComp);
-        for (int i = 0; i < keys.Count; i++)
-            result.Add(keys[i]);
-        return result;
-    }
-
-    private class ReverseComparer : IComparer<object>
-    {
-        public int Compare(object x, object y)
+        else if (t.Right != null)
         {
-            return Comparer<object>.Default.Compare(y, x);
+            Node p = t.Right;
+            while (p.Left != null)
+                p = p.Left;
+            return p;
+        }
+        else
+        {
+            Node p = t.Parent;
+            Node ch = t;
+            while (p != null && ch == p.Right)
+            {
+                ch = p;
+                p = p.Parent;
+            }
+            return p;
         }
     }
 }
