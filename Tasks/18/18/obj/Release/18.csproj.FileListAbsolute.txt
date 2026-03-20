@@ -1,0 +1,2 @@
+C:\Users\Yura\source\repos\18\18\obj\Release\18.csproj.AssemblyReference.cache
+C:\Users\Yura\source\repos\18\18\obj\Release\18.csproj.CoreCompileInputs.cache
