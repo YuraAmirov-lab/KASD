@@ -210,75 +210,52 @@ class Program
             g[a, b] = 1;
             g[b, a] = 1;
         }
+        List<int> currentClique = new List<int>();
+        List<int> bestClique = new List<int>();
 
-        int bestMask = 0;
-        int bestSize = 0;
+        FindClique(0, n, g, currentClique, bestClique);
 
-        int total = 1 << n;
-
-        for (int mask = 1; mask < total; mask++)
+        Console.WriteLine("Размер максимальной клики = " + bestClique.Count);
+        Console.Write("Вершины клики: ");
+        foreach (int v in bestClique)
         {
-            bool isClique = true;
-            int count = 0;
-
-            for (int i = 0; i < n; i++)
+            Console.Write(v + " ");
+        }
+        Console.WriteLine();
+    }
+    static void FindClique(int start, int n, int[,] g, List<int> current, List<int> best)
+    {
+        if (current.Count > best.Count)
+        {
+            best.Clear();
+            foreach (int v in current)
             {
-                if ((mask & (1 << i)) != 0)
-                {
-                    count++;
-                }
+                best.Add(v);
             }
+        }
 
-            if (count <= bestSize)
+        for (int i = start; i < n; i++)
+        {
+            bool canAdd = true;
+
+            for (int j = 0; j < current.Count; j++)
             {
-                continue;
-            }
-
-            for (int i = 0; i < n; i++)
-            {
-                if ((mask & (1 << i)) == 0)
+                if (g[i, current[j]] == 0)
                 {
-                    continue;
-                }
-
-                for (int j = i + 1; j < n; j++)
-                {
-                    if ((mask & (1 << j)) == 0)
-                    {
-                        continue;
-                    }
-
-                    if (g[i, j] == 0)
-                    {
-                        isClique = false;
-                        break;
-                    }
-                }
-
-                if (!isClique)
-                {
+                    canAdd = false;
                     break;
                 }
             }
 
-            if (isClique)
+            if (canAdd)
             {
-                bestSize = count;
-                bestMask = mask;
+                current.Add(i);
+
+                FindClique(i + 1, n, g, current, best);
+
+                current.RemoveAt(current.Count - 1);
             }
         }
-
-        Console.WriteLine("Размер максимальной клики = " + bestSize);
-        Console.Write("Вершины клики: ");
-
-        for (int i = 0; i < n; i++)
-        {
-            if ((bestMask & (1 << i)) != 0)
-            {
-                Console.Write(i + " ");
-            }
-        }
-
-        Console.WriteLine();
     }
+
 }
