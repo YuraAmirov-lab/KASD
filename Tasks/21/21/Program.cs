@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace task21
 {
@@ -26,7 +27,6 @@ namespace task21
 
             public override int GetHashCode()
             {
-                unchecked
                 {
                     int hash = 17;
                     hash = hash * 23 + (Key == null ? 0 : Key.GetHashCode());
@@ -52,13 +52,13 @@ namespace task21
                 if (initialCapacity <= 0)
                     throw new ArgumentException("Начальная емкость должна быть больше нуля.");
                 if (loadFactor <= 0 || loadFactor >= 1)
-                    throw new ArgumentException("LoadFactor должен быть в диапазоне (0,1).");
+                    throw new ArgumentException("Неверный loadFactor.");
 
-                size = 0;
                 table = new LinkedList<Entry<K, V>>[initialCapacity];
                 this.loadFactor = loadFactor;
+                size = 0;
 
-                for (int i = 0; i < initialCapacity; i++)
+                for (int i = 0; i < table.Length; i++)
                     table[i] = new LinkedList<Entry<K, V>>();
             }
 
@@ -67,121 +67,144 @@ namespace task21
 
             public void Clear()
             {
-                foreach (var bucket in table)
-                    bucket?.Clear();
+                for (int i = 0; i < table.Length; i++)
+                    table[i].Clear();
                 size = 0;
             }
 
             private int GetIndex(K key)
             {
-                int h1 = key?.GetHashCode() ?? 0;
-                int h2 = h1 ^ (int)((uint)h1 >> 16);
-                return (h2 & 0x7FFFFFFF) % table.Length;
+                int hash = key.GetHashCode();
+                if (hash < 0) hash = -hash;
+                return hash % table.Length;
             }
 
             public bool ContainsKey(object key)
             {
-                if (key is not K genericKey) return false;
-                int index = GetIndex(genericKey);
+                if (key == null) return false;
+
+                int index = GetIndex((K)key);
+
                 foreach (var entry in table[index])
-                    if (EqualityComparer<K>.Default.Equals(entry.Key, genericKey))
+                    if (entry.Key.Equals(key))
                         return true;
+
                 return false;
             }
 
             public bool ContainsValue(object value)
             {
-                if (value is not V genericValue) return false;
                 foreach (var bucket in table)
                     foreach (var entry in bucket)
-                        if (EqualityComparer<V>.Default.Equals(entry.Value, genericValue))
+                        if (entry.Value.Equals(value))
                             return true;
-                return false;
-            }
 
-            public HashSet<Entry<K, V>> EntrySet()
-            {
-                var set = new HashSet<Entry<K, V>>();
-                foreach (var bucket in table)
-                    foreach (var entry in bucket)
-                        set.Add(entry);
-                return set;
+                return false;
             }
 
             public V Get(object key)
             {
-                if (key is not K genericKey) return default;
-                int index = GetIndex(genericKey);
+                if (key == null) return default(V);
+
+                int index = GetIndex((K)key);
+
                 foreach (var entry in table[index])
-                    if (EqualityComparer<K>.Default.Equals(entry.Key, genericKey))
+                    if (entry.Key.Equals(key))
                         return entry.Value;
-                return default;
+
+                return default(V);
             }
 
-            public bool IsEmpty() => size == 0;
+            public bool IsEmpty()
+            {
+                return size == 0;
+            }
 
             public HashSet<K> KeySet()
             {
-                var set = new HashSet<K>();
+                HashSet<K> set = new HashSet<K>();
+
                 foreach (var bucket in table)
                     foreach (var entry in bucket)
                         set.Add(entry.Key);
+
+                return set;
+            }
+
+            public HashSet<Entry<K, V>> EntrySet()
+            {
+                HashSet<Entry<K, V>> set = new HashSet<Entry<K, V>>();
+
+                foreach (var bucket in table)
+                    foreach (var entry in bucket)
+                        set.Add(entry);
+
                 return set;
             }
 
             public void Put(K key, V value)
             {
-                if (key == null) throw new ArgumentNullException("Ключ не может быть null.");
+                if (key == null)
+                    throw new ArgumentNullException("Ключ не может быть null.");
+
                 int index = GetIndex(key);
+
                 foreach (var entry in table[index])
                 {
-                    if (EqualityComparer<K>.Default.Equals(entry.Key, key))
+                    if (entry.Key.Equals(key))
                     {
                         entry.Value = value;
                         return;
                     }
                 }
+
                 table[index].AddLast(new Entry<K, V>(key, value));
                 size++;
+
                 if ((double)size / table.Length >= loadFactor)
                     Resize();
             }
 
             private void Resize()
             {
-                var oldTable = table;
-                table = new LinkedList<Entry<K, V>>[table.Length * 2];
+                LinkedList<Entry<K, V>>[] oldTable = table;
+
+                table = new LinkedList<Entry<K, V>>[oldTable.Length * 2];
+
                 for (int i = 0; i < table.Length; i++)
                     table[i] = new LinkedList<Entry<K, V>>();
 
                 foreach (var bucket in oldTable)
                     foreach (var entry in bucket)
                     {
-                        int newIndex = GetIndex(entry.Key);
-                        table[newIndex].AddLast(entry);
+                        int index = GetIndex(entry.Key);
+                        table[index].AddLast(entry);
                     }
             }
 
             public bool Remove(object key)
             {
-                if (key is not K genericKey) return false;
-                int index = GetIndex(genericKey);
-                var bucket = table[index];
-                var node = bucket.First;
-                while (node != null)
+                if (key == null) return false;
+
+                int index = GetIndex((K)key);
+
+                foreach (var entry in table[index])
                 {
-                    if (EqualityComparer<K>.Default.Equals(node.Value.Key, genericKey))
+                    if (entry.Key.Equals(key))
                     {
-                        bucket.Remove(node);
+                        table[index].Remove(entry);
                         size--;
                         return true;
                     }
-                    node = node.Next;
                 }
+
                 return false;
             }
 
-            public int Size() => size;
+            public int Size()
+            {
+                return size;
+            }
         }
 
         static void Main(string[] args)
