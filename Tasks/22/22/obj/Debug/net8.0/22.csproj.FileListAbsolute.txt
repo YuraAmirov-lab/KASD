@@ -1,0 +1,14 @@
+C:\Users\Yura\source\repos\22\22\bin\Debug\net8.0\22.exe
+C:\Users\Yura\source\repos\22\22\bin\Debug\net8.0\22.deps.json
+C:\Users\Yura\source\repos\22\22\bin\Debug\net8.0\22.runtimeconfig.json
+C:\Users\Yura\source\repos\22\22\bin\Debug\net8.0\22.dll
+C:\Users\Yura\source\repos\22\22\bin\Debug\net8.0\22.pdb
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.AssemblyInfoInputs.cache
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.AssemblyInfo.cs
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.csproj.CoreCompileInputs.cache
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.dll
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\refint\22.dll
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.pdb
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\22.genruntimeconfig.cache
+C:\Users\Yura\source\repos\22\22\obj\Debug\net8.0\ref\22.dll
