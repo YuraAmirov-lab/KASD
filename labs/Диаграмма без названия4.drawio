@@ -1,0 +1,444 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Страница-1" id="YLTFpWqyZgAfVtnYSih2">
+    <mxGraphModel dx="2312" dy="1215" grid="1" gridSize="14" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TIccAGn68DDRpeWgnP0c-1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Член партии" vertex="1">
+          <mxGeometry height="254" width="140" x="280" y="700" as="geometry">
+            <mxRectangle height="30" width="100" x="340" y="270" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-2" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ФИО&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-3" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Дата_рождения" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-4" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Адрес_проживания" vertex="1">
+          <mxGeometry height="22" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-13" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Email" vertex="1">
+          <mxGeometry height="22" width="140" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-14" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Дата_вступления" vertex="1">
+          <mxGeometry height="22" width="140" y="122" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-15" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Статус" vertex="1">
+          <mxGeometry height="22" width="140" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-16" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_члена_партии" vertex="1">
+          <mxGeometry height="22" width="140" y="166" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-18" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_отделения" vertex="1">
+          <mxGeometry height="22" width="140" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-19" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_города" vertex="1">
+          <mxGeometry height="22" width="140" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-20" parent="TIccAGn68DDRpeWgnP0c-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Номер_телефона" vertex="1">
+          <mxGeometry height="22" width="140" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-21" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Образование" vertex="1">
+          <mxGeometry height="104" width="140" x="28" y="854" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-22" parent="TIccAGn68DDRpeWgnP0c-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Место_образования" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-23" parent="TIccAGn68DDRpeWgnP0c-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_образования" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-24" parent="TIccAGn68DDRpeWgnP0c-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Уровень" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-25" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Назначение на должность" vertex="1">
+          <mxGeometry height="182" width="140" x="588" y="826" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-27" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_назначения" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-28" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_члена_партии" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-29" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_должности" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-30" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Дата_назначения" vertex="1">
+          <mxGeometry height="26" width="140" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-31" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Приказ" vertex="1">
+          <mxGeometry height="26" width="140" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-26" parent="TIccAGn68DDRpeWgnP0c-25" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_отделения" vertex="1">
+          <mxGeometry height="26" width="140" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-36" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Руководящая должность" vertex="1">
+          <mxGeometry height="104" width="140" x="588" y="686" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-37" parent="TIccAGn68DDRpeWgnP0c-36" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-38" parent="TIccAGn68DDRpeWgnP0c-36" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_должности" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-39" parent="TIccAGn68DDRpeWgnP0c-36" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Уровень_доступа" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-40" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Партийное отделение" vertex="1">
+          <mxGeometry height="170" width="140" x="588" y="1064" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-41" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-42" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_вышестоящего отделения" vertex="1">
+          <mxGeometry height="38" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-47" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_отделения" vertex="1">
+          <mxGeometry height="20" width="140" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-48" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Адрес" vertex="1">
+          <mxGeometry height="20" width="140" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-49" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Номер_телефона" vertex="1">
+          <mxGeometry height="20" width="140" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-43" parent="TIccAGn68DDRpeWgnP0c-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Email" vertex="1">
+          <mxGeometry height="20" width="140" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-50" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Спонсор" vertex="1">
+          <mxGeometry height="156" width="140" x="588" y="1274" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-51" parent="TIccAGn68DDRpeWgnP0c-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Email" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-52" parent="TIccAGn68DDRpeWgnP0c-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Номер_телефона" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-53" parent="TIccAGn68DDRpeWgnP0c-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_спонсора" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-54" parent="TIccAGn68DDRpeWgnP0c-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Сумма" vertex="1">
+          <mxGeometry height="26" width="140" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-55" parent="TIccAGn68DDRpeWgnP0c-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название_организации" vertex="1">
+          <mxGeometry height="26" width="140" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-56" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Город" vertex="1">
+          <mxGeometry height="130" width="140" x="274" y="546" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-57" parent="TIccAGn68DDRpeWgnP0c-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-58" parent="TIccAGn68DDRpeWgnP0c-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_города" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-59" parent="TIccAGn68DDRpeWgnP0c-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Население" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-60" parent="TIccAGn68DDRpeWgnP0c-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Регион/область" vertex="1">
+          <mxGeometry height="26" width="140" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-61" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Документ" vertex="1">
+          <mxGeometry height="156" width="140" x="280" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-62" parent="TIccAGn68DDRpeWgnP0c-61" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Тип_документа" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-63" parent="TIccAGn68DDRpeWgnP0c-61" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_автора" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-64" parent="TIccAGn68DDRpeWgnP0c-61" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Дата_создания" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-65" parent="TIccAGn68DDRpeWgnP0c-61" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_документа" vertex="1">
+          <mxGeometry height="26" width="140" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-66" parent="TIccAGn68DDRpeWgnP0c-61" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Описание" vertex="1">
+          <mxGeometry height="26" width="140" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-67" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Мероприятие" vertex="1">
+          <mxGeometry height="234" width="140" x="30" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-68" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_отделения" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-69" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Организатор" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-70" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-71" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Длительность" vertex="1">
+          <mxGeometry height="26" width="140" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-72" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_мероприятия" vertex="1">
+          <mxGeometry height="26" width="140" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-73" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Дата_начала" vertex="1">
+          <mxGeometry height="26" width="140" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-74" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_города" vertex="1">
+          <mxGeometry height="26" width="140" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-75" parent="TIccAGn68DDRpeWgnP0c-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Место проведения" vertex="1">
+          <mxGeometry height="26" width="140" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-76" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Тип мероприятия" vertex="1">
+          <mxGeometry height="104" width="140" x="-240" y="1065" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-77" parent="TIccAGn68DDRpeWgnP0c-76" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Название" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-78" parent="TIccAGn68DDRpeWgnP0c-76" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="ID_типа" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-79" parent="TIccAGn68DDRpeWgnP0c-76" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="Описание" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-84" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-78" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-71" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-90" y="1146.5" as="sourcePoint" />
+            <mxPoint x="70" y="1146.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-85" connectable="0" parent="TIccAGn68DDRpeWgnP0c-84" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=16;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-86" connectable="0" parent="TIccAGn68DDRpeWgnP0c-84" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=16;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-87" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-71" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="TIccAGn68DDRpeWgnP0c-64" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="225" y="1147" />
+              <mxPoint x="225" y="1121" />
+            </Array>
+            <mxPoint x="180" y="1090" as="sourcePoint" />
+            <mxPoint x="340" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-88" connectable="0" parent="TIccAGn68DDRpeWgnP0c-87" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1..*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-89" connectable="0" parent="TIccAGn68DDRpeWgnP0c-87" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-95" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-69" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1.008;exitY=0.877;exitDx=0;exitDy=0;exitPerimeter=0;" target="TIccAGn68DDRpeWgnP0c-16" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="126" y="1008" as="sourcePoint" />
+            <mxPoint x="286" y="1008" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-96" connectable="0" parent="TIccAGn68DDRpeWgnP0c-95" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-97" connectable="0" parent="TIccAGn68DDRpeWgnP0c-95" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-98" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-62" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-20" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="476" y="1078" />
+              <mxPoint x="476" y="943" />
+            </Array>
+            <mxPoint x="462" y="1022" as="sourcePoint" />
+            <mxPoint x="496" y="980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-99" connectable="0" parent="TIccAGn68DDRpeWgnP0c-98" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-100" connectable="0" parent="TIccAGn68DDRpeWgnP0c-98" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-101" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-68" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-59" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="1069" />
+              <mxPoint x="210" y="637" />
+            </Array>
+            <mxPoint x="126" y="952" as="sourcePoint" />
+            <mxPoint x="286" y="952" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-102" connectable="0" parent="TIccAGn68DDRpeWgnP0c-101" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-103" connectable="0" parent="TIccAGn68DDRpeWgnP0c-101" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-104" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-3" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-60" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="224" y="765" />
+              <mxPoint x="224" y="663" />
+            </Array>
+            <mxPoint x="238" y="770" as="sourcePoint" />
+            <mxPoint x="398" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-105" connectable="0" parent="TIccAGn68DDRpeWgnP0c-104" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-106" connectable="0" parent="TIccAGn68DDRpeWgnP0c-104" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-107" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-73" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-49" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="254" y="1316" as="sourcePoint" />
+            <mxPoint x="414" y="1316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-108" connectable="0" parent="TIccAGn68DDRpeWgnP0c-107" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-109" connectable="0" parent="TIccAGn68DDRpeWgnP0c-107" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-110" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-18" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-48" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="899" />
+              <mxPoint x="490" y="1184" />
+            </Array>
+            <mxPoint x="448" y="1008" as="sourcePoint" />
+            <mxPoint x="608" y="1008" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-111" connectable="0" parent="TIccAGn68DDRpeWgnP0c-110" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-112" connectable="0" parent="TIccAGn68DDRpeWgnP0c-110" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-113" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-60" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-47" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="406" y="812" as="sourcePoint" />
+            <mxPoint x="566" y="812" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-114" connectable="0" parent="TIccAGn68DDRpeWgnP0c-113" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-115" connectable="0" parent="TIccAGn68DDRpeWgnP0c-113" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-116" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-43" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-52" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="532" y="1224" />
+              <mxPoint x="532" y="1339" />
+            </Array>
+            <mxPoint x="490" y="1372" as="sourcePoint" />
+            <mxPoint x="650" y="1372" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-117" connectable="0" parent="TIccAGn68DDRpeWgnP0c-116" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1..*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-118" connectable="0" parent="TIccAGn68DDRpeWgnP0c-116" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-119" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-22" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-15" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="196" y="893" />
+              <mxPoint x="196" y="855" />
+            </Array>
+            <mxPoint x="98" y="826" as="sourcePoint" />
+            <mxPoint x="258" y="826" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-120" connectable="0" parent="TIccAGn68DDRpeWgnP0c-119" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-121" connectable="0" parent="TIccAGn68DDRpeWgnP0c-119" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-122" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-14" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-28" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="518" y="833" />
+              <mxPoint x="518" y="891" />
+            </Array>
+            <mxPoint x="434" y="868" as="sourcePoint" />
+            <mxPoint x="594" y="868" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-123" connectable="0" parent="TIccAGn68DDRpeWgnP0c-122" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-124" connectable="0" parent="TIccAGn68DDRpeWgnP0c-122" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-125" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-27" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-39" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="865" />
+              <mxPoint x="560" y="777" />
+            </Array>
+            <mxPoint x="490" y="798" as="sourcePoint" />
+            <mxPoint x="650" y="798" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-126" connectable="0" parent="TIccAGn68DDRpeWgnP0c-125" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry">
+            <mxPoint x="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-127" connectable="0" parent="TIccAGn68DDRpeWgnP0c-125" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-128" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-41" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" target="TIccAGn68DDRpeWgnP0c-26" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="756" y="1102.9999999999998" />
+              <mxPoint x="756" y="995" />
+            </Array>
+            <mxPoint x="644" y="1050" as="sourcePoint" />
+            <mxPoint x="804" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-129" connectable="0" parent="TIccAGn68DDRpeWgnP0c-128" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-1" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-130" connectable="0" parent="TIccAGn68DDRpeWgnP0c-128" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry">
+            <mxPoint x="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-133" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Член партии&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Поле_для_поиска_мероприятия&lt;br&gt;Список_посещенных_меро&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;приятий&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="98" width="190" x="3" y="504" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-136" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-2" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="TIccAGn68DDRpeWgnP0c-133" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="224" y="722" as="sourcePoint" />
+            <mxPoint x="274" y="672" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-137" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Секретарь&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Поле_ID_члена_партии&lt;br&gt;Сумма_общего_спонсорства&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="84" width="190" x="538" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-138" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Организатор&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Поле_ID_мероприятия&lt;br&gt;Список_всех_мероприятий&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Назначение_нового_мероприятия&lt;/p&gt;" vertex="1">
+          <mxGeometry height="98" width="190" x="827" y="462" as="geometry" />
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-139" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-36" style="endArrow=classic;html=1;rounded=0;exitX=0.319;exitY=-0.004;exitDx=0;exitDy=0;exitPerimeter=0;" target="TIccAGn68DDRpeWgnP0c-137" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="560" y="736" as="sourcePoint" />
+            <mxPoint x="610" y="686" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TIccAGn68DDRpeWgnP0c-141" edge="1" parent="1" source="TIccAGn68DDRpeWgnP0c-36" style="endArrow=classic;html=1;rounded=0;entryX=0.087;entryY=1.021;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.001;exitY=0.159;exitDx=0;exitDy=0;exitPerimeter=0;" target="TIccAGn68DDRpeWgnP0c-138" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="798" y="694" as="sourcePoint" />
+            <mxPoint x="848" y="644" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
